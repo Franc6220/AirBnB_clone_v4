@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB - 2</title>
+    <link rel="stylesheet" href="../static/styles/3-header.css">
+    <link rel="stylesheet" href="../static/styles/3-footer.css">
+    <link rel="stylesheet" href="../static/styles/1-filters.css">
+    <link rel="stylesheet" href="../static/styles/4-places.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/scripts/2-hbnb.js" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div id="api_status"></div>
+        <h1>HBNB</h1>
+    </header>
+    <section class="filters">
+        <h4>Amenities</h4>
+        <ul>
+            {% for amenity in amenities %}
+                <li><input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="places">
+        <h1>Places</h1>
+        <div class="places_list">
+            {% for place in places %}
+                <article>
+                    <div class="title_box">
+                        <h2>{{ place.name }}</h2>
+                        <div class="price_by_night">${{ place.price_by_night }}</div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+                        <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+                        <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+                    </div>
+                    <div class="user">
+                        <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+                    </div>
+                    <div class="description">
+                        {{ place.description | safe }}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <p>Best School</p>
+    </footer>
+</body>
+</html>
+

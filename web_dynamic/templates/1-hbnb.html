@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/100-hbnb.css') }}?cache_id={{ cache_id }}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/1-hbnb.js') }}?cache_id={{ cache_id }}"></script>
+</head>
+<body>
+    <header>
+        <!-- Header content -->
+    </header>
+    <div class="filters">
+        <h4>Amenities</h4>
+        <ul>
+            {% for amenity in amenities %}
+            <li>
+                <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+                {{ amenity.name }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <section class="places">
+        <!-- Places content -->
+    </section>
+    <footer>
+        <p>Best School</p>
+    </footer>
+</body>
+</html>
+
