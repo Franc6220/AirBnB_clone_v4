@@ -3,6 +3,7 @@
 Contains the class DBStorage
 """
 
+import os
 import models
 from models.amenity import Amenity
 from models.base_model import BaseModel, Base
@@ -31,12 +32,9 @@ class DBStorage:
         password = os.getenv('HBNB_MYSQL_PWD')
         host = os.getenv('HBNB_MYSQL_HOST')
         db = os.getenv('HBNB_MYSQL_DB')
-        HBNB_ENV = getenv('HBNB_ENV')
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(user,
-                                             password,
-                                             host,
-                                             db))
+        HBNB_ENV = os.getenv('HBNB_ENV')
+        self.__engine = create_engine(f'mysql+mysqldb://{user}:{password}@{host}/{db}')
+
         if HBNB_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
