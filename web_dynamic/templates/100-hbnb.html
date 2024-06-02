@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB - Places</title>
+    <link rel="stylesheet" href="../static/styles/100-header.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/scripts/100-hbnb.js" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div id="api_status"></div>
+        <h1>HBNB</h1>
+    </header>
+    <section class="filters">
+        <h4>Amenities</h4>
+        <ul>
+            {% for amenity in amenities %}
+                <li><input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}</li>
+            {% endfor %}
+        </ul>
+        <h4>States</h4>
+        <ul>
+            <li>
+                <input type="checkbox" data-id="1" data-name="California"> California
+                <ul>
+                    <li><input type="checkbox" data-id="10" data-name="San Francisco"> San Francisco</li>
+                    <li><input type="checkbox" data-id="11" data-name="Los Angeles"> Los Angeles</li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" data-id="2" data-name="New York"> New York
+                <ul>
+                    <li><input type="checkbox" data-id="20" data-name="New York City"> New York City</li>
+                    <li><input type="checkbox" data-id="21" data-name="Buffalo"> Buffalo</li>
+                </ul>
+            </li>
+        </ul>
+    <button>Filter</button>
+    </section>
+    <section class="places">
+        <h1>Places</h1>
+        <div class="places_list">
+            <!-- Places will be dynamically loaded here by JavaScript -->
+    </section>
+    <footer>
+        <p>Best School</p>
+    </footer>
+</body>
+</html>
+
